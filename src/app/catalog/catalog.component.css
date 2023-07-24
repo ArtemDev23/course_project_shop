@@ -1,0 +1,44 @@
+.image {
+    height: 350px;
+    width: 90%;
+    margin: 10px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 35px;
+    color: blue;
+}
+
+h2 {
+    color:blueviolet;
+}
+
+.label {
+    padding-right: 10px;
+}
+
+.form-select {
+    width: 24%;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+button {
+    display: block;
+    margin: 10px auto 10px;
+    width: 65%;
+}
+
+.sort {
+    width: 220px;
+    margin-left: 0;
+}

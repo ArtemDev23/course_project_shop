@@ -1,0 +1,33 @@
+<div class="container sticky-top">
+    <header>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" [(ngModel)]="menuActive" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+
+            <ul class="menu__box">
+                <li routerLink="/catalog" class="menu__item" (click)="closeMenu()">Каталог</li>
+                <li routerLink="/cart" class="menu__item" (click)="closeMenu()">Кошик</li>
+                <li routerLink="/admin" class="menu__item" (click)="closeMenu()">Панель адміністрування</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="shop_logo">
+                <a routerLink="/catalog"><img src="../../assets/icons/shop_logo.png" alt="shop_logo" class="cart_img"></a>
+            </div>
+            <nav>
+                <li routerLink="/catalog">Каталог</li>
+                <li routerLink="/cart">Кошик</li>
+                <li routerLink="/admin">Панель адміністрування</li>
+            </nav>
+            <div class="cart-icon">
+                <div class="buy">
+                    <p class="descr">Кількість покупок:</p>
+                    <p class="descr"> {{ itemCount }} шт </p>
+                </div>
+                <a routerLink="/cart"><img src="../../assets/icons/cart-icon.png" alt="cart-icon" class="cart_img" id="cart"></a>
+            </div>
+        </div>
+    </header>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card mb-3">
+        <h5>{{ product.category }} :</h5>
+        <h2>{{ product.title }}</h2>
+        <img [src]="product.image" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.description }}</h5>
+            <p class="card-text">Ціна: {{ product.price }} $</p>
+            <div class="text_wrapp">
+                <p class="card-text">Рейтинг: {{ product.rating?.rate || 0 }}</p>
+                <p class="card-text">Кількість голосів: {{ product.rating?.count || 0 }} шт</p>
+            </div>
+            <button class="btn btn-primary" (click)="addToCart(product)">Додати до кошика</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

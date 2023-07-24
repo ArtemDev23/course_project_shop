@@ -1,0 +1,56 @@
+<div class="container">
+    <h2>Кошик</h2>
+  
+    <div *ngIf="cartItems.length > 0; else noItems">
+      <table>
+        <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Ціна</th>
+            <th>Кількість</th>
+            <th>Зображення</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems">
+            <td>{{ item.title }}</td>
+            <td>{{ item.price }} $</td>
+            <td>
+              <!-- Кнопки "+" та "-" для зміни кількості товару -->
+              <button class="btn btn-sm btn-success" (click)="increaseQuantity(item)">+</button>
+              {{ item.quantity }}
+              <button class="btn btn-sm btn-danger" (click)="decreaseQuantity(item)">-</button>
+            </td>
+            <td><img [src]="item.image" alt="Product Image" width="50"></td>
+            <td>
+              <button class="btn btn-secondary" (click)="removeFromCart(item)">Видалити</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <p class="total-amount">Загальна вартість: {{ totalPrice }} $</p>
+      <p>Кількість товарів: {{ itemCount }} шт</p>
+  
+      <button class="btn place-order-btn" (click)="placeOrder()">Оформити покупку</button>
+      <button class="btn clear-cart-btn" (click)="clearCart()">Очистити кошик</button>
+    </div>
+
+    <ng-template #orderConfirmation let-modal>       
+            <div class="modal-header">
+                <h4 class="modal-title">Ваше замовлення оформлено!</h4>
+              </div>
+              <div class="modal-body">
+                <p>Ми отримали ваше замовлення та обробимо його найшвидше.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="modal.close()">Закрити</button>
+              </div>
+      </ng-template>
+  
+    <ng-template #noItems>
+      <p>Кошик порожній.</p>
+    </ng-template>
+  </div>
+  

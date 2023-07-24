@@ -1,0 +1,27 @@
+h2 {
+  text-align: center;
+  /* margin: 30px auto 20px; */
+}
+
+h5 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.card-img-top {
+  width: 70%;
+  height: 60%;
+  margin: 0 auto;
+}
+
+.text_wrapp {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}

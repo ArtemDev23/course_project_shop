@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="admin-container">
+        <h1>Адмін Панель</h1>
+
+        <!-- Filter by Date -->
+        <div class="date-filter">
+            <h2>Сортувати за датою:</h2>
+            <label for="fromDate">з дати: </label>
+            <input type="date" id="fromDate" [(ngModel)]="fromDate" />
+            <label for="toDate">по дату: </label>
+            <input type="date" id="toDate" [(ngModel)]="toDate" />
+            <button (click)="filterCartsByDate()">Sort</button>
+        </div>
+
+        <!-- Display All Baskets -->
+        <div class="baskets-container">
+            <h2>Всі кошики</h2>
+            <ul>
+                <li *ngFor="let basket of baskets">
+                    <button (click)="getCartsDetails(basket.id)">ID кошика: {{ basket.id }}</button>
+                    <span> Загальна сума: {{ basket.totalAmount }}$</span>
+                    <!-- Display the total amount for each basket -->
+                </li>
+            </ul>
+            <p class="total-amount">Загальна сума всіх кошиків: {{ totalAmount }}$</p>
+        </div>
+
+        <!-- Display Selected Basket Details -->
+        <div class="selected-basket-details" *ngIf="selectedBasket">
+            <h3>ID кошика: {{ selectedBasket.id }}</h3>
+            <p class="total-amount">Загальна сума: {{ selectedBasket.totalAmount }}$</p>
+            <h4>Товари:</h4>
+            <table>
+                <thead>
+                  <tr>
+                    <th>зображення</th>
+                    <th>Продукт</th>
+                    <th>Кількість</th>
+                    <th>Ціна</th>
+                    <th>Загальна ціна</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of selectedBasket.products">
+                    <td><img [src]="product.imageUrl" alt="Product Image" width="50" height="50"></td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}$</td>
+                    <td>{{ product.totalPrice }}$</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
